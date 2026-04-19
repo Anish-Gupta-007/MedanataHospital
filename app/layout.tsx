@@ -18,7 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           .font-serif { font-family: 'Playfair Display', serif; }
         `}} />
       </head>
-      <body className="bg-[#fcfcfc] text-[#222] min-h-screen relative pb-[80px]">
+      <body className="bg-[#fcfcfc] text-[#222] min-h-screen relative">
         {children}
 
         {/* --- Global Unfixed Side Widgets --- */}
@@ -38,31 +38,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
         </div>
 
-        {/* --- Global Chat Widgets --- */}
-        <div className="fixed bottom-0 right-10 z-[60]">
-          <button className="bg-[#c83726] hover:bg-[#a92c1b] text-white text-[13px] font-bold py-2.5 px-6 rounded-t-lg shadow-[0_-4px_10px_rgba(0,0,0,0.15)] relative transition-all">
-            Chat Online
-            <span className="absolute -top-1.5 -right-1.5 flex h-4 w-4">
-              <span className="relative inline-flex rounded-full h-4 w-4 bg-[#b50000] border border-white items-center justify-center text-[9px] text-white">1</span>
-            </span>
-          </button>
-        </div>
-
-        {/* Floating Chat Welcome Speech Bubble */}
-        <div className="fixed bottom-14 right-10 z-50 bg-white p-4 rounded-lg shadow-xl border border-gray-100 max-w-[280px]">
-          <button className="absolute top-1.5 right-2 text-gray-400 hover:text-gray-600 font-bold">&times;</button>
-          <p className="text-[13px] text-gray-600 leading-snug pr-3">
-            Welcome to our site, if you need help simply reply to this message, we are online and ready to help.
-          </p>
-        </div>
-
-        {/* --- Sticky Bottom Cookies Notice --- */}
-        <div className="fixed bottom-0 left-0 w-full z-40 bg-white border-t border-gray-200 py-3 px-6 flex items-center justify-between shadow-[0_-2px_15px_rgba(0,0,0,0.05)]">
-          <p className="text-[13px] text-gray-500 hidden md:block">
-            This website uses cookies. To accept all cookies or adjust your cookie preferences, click the links to the right. <a href="#" className="text-[#e8402a] font-semibold underline">Learn more</a>
-          </p>
-          <button className="ml-auto md:ml-4 bg-[#e8402a] hover:bg-[#c73520] text-white text-[13px] font-bold py-2 px-8 rounded-full transition-all">Accept</button>
-        </div>
       </body>
     </html>
   );

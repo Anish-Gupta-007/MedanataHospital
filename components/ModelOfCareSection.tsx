@@ -44,7 +44,7 @@ export default function ModelOfCareSection() {
   ];
 
   return (
-    <section className="py-18 relative overflow-hidden bg-[#fafbfc]">
+    <section className="py-[72px] relative overflow-hidden bg-[#fafbfc]">
       <style>{`
         @keyframes popIn {
           0% { opacity: 0.2; transform: scale(0.9); filter: blur(4px); }
@@ -54,8 +54,14 @@ export default function ModelOfCareSection() {
         .animate-pop { animation: popIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
       `}</style>
       
-      {/* Topographic Background */}
-      <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm-63-31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm-22 38c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3z' fill='%23000' fill-rule='evenodd'/%3E%3C/svg%3E\")", backgroundSize: '200px 200px' }}></div>
+      {/* Custom Background Image */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <img 
+          src="/image.png" 
+          alt="Model of Care Background" 
+          className="w-full h-full object-cover" 
+        />
+      </div>
       
       <div className="max-w-[1200px] mx-auto relative z-10 flex flex-col items-center">
         
