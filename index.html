@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medanta - The Medicity | World's Best Hospitals</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #e8402a;
+    --red-dark: #c73520;
+    --text: #222222;
+    --text-light: #555555;
+    --border: #e5e5e5;
+    --bg-light: #f7f7f7;
+    --white: #ffffff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Nunito Sans', sans-serif; color: var(--text); overflow-x: hidden; }
+  a { text-decoration: none; color: inherit; }
+  
+  /* ===== NAVBAR ===== */
+  .navbar {
+    position: sticky; top: 0; z-index: 1000;
+    background: white;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+  .nav-top {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 40px; max-width: 1400px; margin: 0 auto;
+  }
+  .logo { display: flex; align-items: center; gap: 8px; }
+  .logo-icon {
+    width: 44px; height: 44px;
+    background: var(--red);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .logo-cross {
+    color: white; font-size: 22px; font-weight: 900; line-height: 1;
+  }
+  .logo-text { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; }
+  .logo-text span { color: var(--red); }
+  .nav-links { display: flex; align-items: center; gap: 28px; }
+  .nav-links a {
+    font-size: 14px; font-weight: 600; color: var(--text);
+    display: flex; align-items: center; gap: 4px; cursor: pointer;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--red); }
+  .nav-links .arrow { font-size: 10px; opacity: .6; }
+  .nav-right { display: flex; align-items: center; gap: 12px; }
+  .btn-callback {
+    background: var(--red); color: white;
+    border: none; border-radius: 50px; padding: 10px 20px;
+    font-size: 14px; font-weight: 700; cursor: pointer;
+    display: flex; align-items: center; gap: 8px;
+    transition: background .2s, transform .15s;
+  }
+  .btn-callback:hover { background: var(--red-dark); transform: translateY(-1px); }
+  .lang-btn {
+    border: 1.5px solid var(--border); border-radius: 50px; padding: 8px 14px;
+    font-size: 13px; font-weight: 600; cursor: pointer; background: white;
+    display: flex; align-items: center; gap: 4px;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(135deg, #f8f4f0 0%, #fdf0ee 100%);
+    min-height: 480px; position: relative; overflow: hidden;
+  }
+  .hero-inner {
+    max-width: 1400px; margin: 0 auto; padding: 0 40px;
+    display: grid; grid-template-columns: 400px 1fr 260px; gap: 30px; align-items: center;
+    min-height: 480px;
+  }
+  .hero-doctor-img {
+    height: 420px; width: 360px;
+    background: linear-gradient(180deg, #d4c4b0 0%, #a8917a 100%);
+    border-radius: 0 0 50% 50% / 0 0 30px 30px;
+    display: flex; align-items: flex-end; justify-content: center;
+    overflow: hidden; position: relative;
+  }
+  .doctor-silhouette {
+    width: 100%; height: 100%;
+    background: linear-gradient(180deg, #c9b49a 0%, #8b7355 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 100px; opacity: .4;
+  }
+  .hero-content { padding: 40px 0; }
+  .search-bar {
+    background: var(--red); border-radius: 50px; padding: 14px 20px 14px 24px;
+    display: flex; align-items: center; gap: 12px; margin-bottom: 30px;
+    max-width: 480px;
+  }
+  .search-bar input {
+    background: none; border: none; outline: none;
+    color: rgba(255,255,255,.7); font-size: 15px; font-weight: 500; flex: 1;
+  }
+  .search-bar input::placeholder { color: rgba(255,255,255,.7); }
+  .search-btn {
+    background: white; border: none; border-radius: 50%; width: 38px; height: 38px;
+    display: flex; align-items: center; justify-content: center; cursor: pointer;
+    color: var(--red); font-size: 16px; flex-shrink: 0;
+  }
+  .quote-block { max-width: 460px; }
+  .quote-icon { font-size: 36px; color: #ccc; line-height: 1; margin-bottom: 10px; }
+  .quote-block p { font-size: 16px; line-height: 1.7; color: var(--text); margin-bottom: 14px; }
+  .quote-block p strong { font-weight: 700; }
+  .quote-author { font-size: 15px; font-weight: 700; }
+  .quote-title { font-size: 13px; color: var(--text-light); }
+  .hero-award {
+    background: white; border-radius: 12px; padding: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1); text-align: center;
+    border: 2px solid #f0f0f0;
+  }
+  .stars { color: var(--red); font-size: 14px; letter-spacing: 2px; margin-bottom: 8px; }
+  .award-title { font-size: 22px; font-weight: 800; line-height: 1.2; margin-bottom: 4px; }
+  .award-year { color: var(--red); font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+  .award-by { font-size: 20px; font-weight: 800; color: var(--red); font-style: italic; }
+  .award-sub { font-size: 11px; color: var(--text-light); margin-bottom: 6px; }
+  .award-name { font-size: 13px; font-weight: 700; color: var(--red); }
+
+  /* ===== QUICK ACTIONS ===== */
+  .quick-actions {
+    background: white; border-top: 1px solid var(--border);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  }
+  .quick-actions-inner {
+    max-width: 1400px; margin: 0 auto;
+    display: flex; overflow-x: auto;
+  }
+  .qa-item {
+    flex: 1; min-width: 160px; padding: 18px 20px;
+    display: flex; align-items: center; gap: 12px;
+    border-right: 1px solid var(--border); cursor: pointer;
+    transition: background .2s;
+  }
+  .qa-item:hover { background: #fdf5f4; }
+  .qa-item:first-child { background: var(--red); color: white; }
+  .qa-item:first-child .qa-icon { color: white; }
+  .qa-item:first-child .qa-label { color: white; }
+  .qa-icon { font-size: 24px; flex-shrink: 0; color: var(--red); }
+  .qa-label { font-size: 13px; font-weight: 700; line-height: 1.3; }
+
+  /* ===== SECTION COMMON ===== */
+  .section { padding: 70px 40px; max-width: 1400px; margin: 0 auto; }
+  .section-bg { background: var(--bg-light); padding: 70px 40px; }
+  .section-bg .section { padding: 0; }
+  .section-title {
+    font-size: 36px; font-weight: 800; margin-bottom: 8px;
+    font-family: 'Playfair Display', serif;
+  }
+  .section-sub { font-size: 15px; color: var(--text-light); margin-bottom: 40px; }
+  .view-all {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: var(--red); font-weight: 700; font-size: 14px; cursor: pointer;
+  }
+  .view-all .circle {
+    width: 28px; height: 28px; background: var(--red); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 12px;
+  }
+  
+  /* ===== SPECIALITIES ===== */
+  .specialities-grid { display: grid; grid-template-columns: 1fr 1.5fr 1fr; gap: 40px; }
+  .spec-left h2 { font-size: 42px; font-weight: 800; font-family: 'Playfair Display', serif; line-height: 1.2; margin-bottom: 20px; }
+  .spec-list { list-style: none; }
+  .spec-list li {
+    padding: 16px 0; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 16px; font-weight: 600; cursor: pointer;
+    transition: color .2s;
+  }
+  .spec-list li:hover { color: var(--red); }
+  .spec-list li:first-child { color: var(--red); }
+  .spec-icon { font-size: 22px; margin-right: 12px; }
+  .spec-arrow { color: var(--red); }
+  .spec-view { margin-top: 20px; }
+  .search-by { }
+  .search-by h3 { font-size: 22px; font-weight: 700; margin-bottom: 20px; }
+  .search-tabs { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+  .tab-btn {
+    padding: 8px 18px; border-radius: 50px; font-size: 13px; font-weight: 600;
+    border: 1.5px solid var(--border); cursor: pointer; background: white;
+    transition: all .2s;
+  }
+  .tab-btn.active { background: var(--red); color: white; border-color: var(--red); }
+  .tab-btn:hover:not(.active) { border-color: var(--red); color: var(--red); }
+  .alpha-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; }
+  .alpha-btn {
+    width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; cursor: pointer; background: white;
+    transition: all .2s;
+  }
+  .alpha-btn:hover { background: var(--red); color: white; border-color: var(--red); }
+  .search-view { margin-top: 20px; }
+
+  /* ===== DOCTORS ===== */
+  .doctors-section { text-align: center; padding: 70px 40px; background: white; }
+  .doctors-section p { max-width: 800px; margin: 0 auto 30px; font-size: 15px; line-height: 1.8; color: var(--text-light); }
+  .doctor-filters { display: flex; gap: 16px; justify-content: center; margin-bottom: 40px; flex-wrap: wrap; }
+  .filter-select {
+    padding: 12px 20px; border-radius: 50px; border: 2px solid var(--border);
+    font-size: 14px; font-weight: 600; cursor: pointer; background: white;
+    min-width: 180px; appearance: none; padding-right: 36px;
+  }
+  .filter-select.active { background: var(--red); color: white; border-color: var(--red); }
+  .filter-go {
+    background: var(--red); color: white; border: none; border-radius: 50px;
+    padding: 12px 28px; font-size: 14px; font-weight: 700; cursor: pointer;
+    transition: background .2s;
+  }
+  .filter-go:hover { background: var(--red-dark); }
+  .doctors-photo {
+    max-width: 1100px; margin: 0 auto; height: 320px;
+    background: linear-gradient(135deg, #e8e0d8 0%, #d0c4b8 100%);
+    border-radius: 16px; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 60px; opacity: .5;
+  }
+
+  /* ===== MODEL OF CARE ===== */
+  .model-section { background: #f9f9f9; padding: 70px 40px; text-align: center; }
+  .model-section h2 { font-size: 36px; font-weight: 800; font-family: 'Playfair Display', serif; margin-bottom: 50px; }
+  .model-diagram {
+    max-width: 800px; margin: 0 auto; position: relative;
+    display: grid; grid-template-areas:
+      ". top ."
+      "left center right"
+      "bl . br";
+    grid-template-columns: 1fr 340px 1fr;
+    grid-template-rows: auto 340px auto;
+    gap: 20px; align-items: center; justify-items: center;
+  }
+  .model-center {
+    grid-area: center;
+    width: 300px; height: 300px; border-radius: 50%;
+    border: 2px dashed #ccc;
+    overflow: hidden; position: relative;
+  }
+  .model-center img, .model-center-inner {
+    width: 100%; height: 100%; object-fit: cover;
+    background: linear-gradient(135deg, #b8d4e8 0%, #7aaccc 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 80px; opacity: .5;
+  }
+  .model-dot {
+    width: 16px; height: 16px; background: var(--red); border-radius: 50%;
+    position: absolute;
+  }
+  .model-item { text-align: center; }
+  .model-item.top { grid-area: top; }
+  .model-item.left { grid-area: left; text-align: right; }
+  .model-item.right { grid-area: right; text-align: left; }
+  .model-item.bl { grid-area: bl; text-align: right; }
+  .model-item.br { grid-area: br; text-align: left; }
+  .model-item h3 { font-size: 18px; font-weight: 800; margin-bottom: 8px; }
+  .model-item .know-more {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 14px; font-weight: 600; color: var(--text); cursor: pointer;
+  }
+  .km-circle {
+    width: 28px; height: 28px; background: var(--red); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 12px;
+  }
+  .node-dot {
+    width: 14px; height: 14px; background: white; border: 2px solid #ccc;
+    border-radius: 50%; display: block;
+  }
+
+  /* ===== SERVICES ===== */
+  .services-section { padding: 70px 40px; background: white; }
+  .services-section h2 { text-align: center; font-size: 36px; font-weight: 800; font-family: 'Playfair Display', serif; margin-bottom: 40px; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1200px; margin: 0 auto; }
+  .service-card {
+    background: white; border-radius: 16px; overflow: hidden;
+    box-shadow: 0 2px 16px rgba(0,0,0,.08); transition: transform .25s, box-shadow .25s;
+    cursor: pointer;
+  }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,.14); }
+  .service-card-img {
+    height: 180px; overflow: hidden;
+    background: linear-gradient(135deg, #e8e0d8, #c8b8a8);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 50px; opacity: .5;
+  }
+  .service-card-body { padding: 20px; }
+  .service-card-body h3 { font-size: 18px; font-weight: 800; margin-bottom: 10px; }
+  .service-card-body p { font-size: 14px; color: var(--text-light); line-height: 1.6; margin-bottom: 16px; }
+  .know-more-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 13px; font-weight: 700; color: var(--text); cursor: pointer;
+  }
+  .service-icon { float: right; font-size: 36px; opacity: .2; }
+
+  /* ===== PATIENT STORIES ===== */
+  .stories-section { padding: 70px 40px; background: var(--bg-light); }
+  .stories-section h2 { text-align: center; font-size: 36px; font-weight: 800; font-family: 'Playfair Display', serif; margin-bottom: 40px; }
+  .stories-grid {
+    display: grid;
+    grid-template-columns: 220px 260px 320px 260px 220px;
+    gap: 12px; align-items: center;
+    max-width: 1300px; margin: 0 auto;
+  }
+  .story-card {
+    border-radius: 12px; overflow: hidden; position: relative; cursor: pointer;
+    transition: transform .25s;
+  }
+  .story-card:hover { transform: scale(1.03); }
+  .story-card.tall { height: 340px; }
+  .story-card.short { height: 160px; }
+  .story-card.wide { height: 260px; }
+  .story-card-bg {
+    width: 100%; height: 100%;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,.7) 100%);
+    position: absolute; top: 0; left: 0;
+    display: flex; align-items: flex-end; padding: 16px;
+  }
+  .story-inner { position: relative; width: 100%; height: 100%; }
+  .story-img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  .story-placeholder {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center; font-size: 50px;
+  }
+  .story-card:nth-child(1) .story-placeholder { background: linear-gradient(135deg, #8fa8c8, #6888a8); }
+  .story-card:nth-child(2) .story-placeholder { background: linear-gradient(135deg, #a8c8a8, #789878); }
+  .story-card:nth-child(3) .story-placeholder { background: linear-gradient(135deg, #c8a8c8, #a888a8); }
+  .story-card:nth-child(4) .story-placeholder { background: linear-gradient(135deg, #c8c8a8, #a8a878); }
+  .story-card:nth-child(5) .story-placeholder { background: linear-gradient(135deg, #c8a8a8, #a88888); }
+  .story-card-col { display: flex; flex-direction: column; gap: 12px; }
+  .play-btn {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: 48px; height: 48px; background: rgba(255,255,255,.9); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; color: var(--red);
+  }
+  .story-label {
+    position: absolute; bottom: 0; left: 0; right: 0; padding: 12px;
+    color: white;
+  }
+  .story-label h4 { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+  .story-label p { font-size: 12px; opacity: .8; }
+  .stories-view { text-align: center; margin-top: 30px; }
+
+  /* ===== BEYOND BOUNDARIES ===== */
+  .beyond-section {
+    background: var(--red); color: white; padding: 60px 80px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+  }
+  .beyond-left span { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; opacity: .8; }
+  .beyond-left h2 { font-size: 40px; font-weight: 800; line-height: 1.2; margin: 10px 0 30px; }
+  .beyond-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 20px; }
+  .btn-know {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 14px; font-weight: 700; color: white; cursor: pointer;
+  }
+  .btn-know .circle { width: 28px; height: 28px; background: rgba(255,255,255,.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; }
+  .btn-enquire {
+    background: white; color: var(--red); border: none; border-radius: 50px;
+    padding: 12px 28px; font-size: 14px; font-weight: 700; cursor: pointer;
+    transition: transform .2s;
+  }
+  .btn-enquire:hover { transform: translateY(-2px); }
+  .beyond-stats { display: flex; gap: 40px; }
+  .stat-item { text-align: center; }
+  .stat-num { font-size: 40px; font-weight: 800; }
+  .stat-label { font-size: 13px; opacity: .85; line-height: 1.3; margin-top: 4px; }
+
+  /* ===== UPDATES ===== */
+  .updates-section { padding: 70px 40px; background: #f2f2f2; position: relative; overflow: hidden; }
+  .updates-section::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='400' height='300' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='200' cy='100' r='180' fill='none' stroke='%23ddd' stroke-width='1'/%3E%3C/svg%3E") center/cover;
+    opacity: .3;
+  }
+  .updates-section h2 { text-align: center; font-size: 36px; font-weight: 800; font-family: 'Playfair Display', serif; margin-bottom: 40px; position: relative; }
+  .updates-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,.08); position: relative; }
+  .update-item {
+    padding: 36px 30px; border-right: 1px solid var(--border);
+    text-align: center; cursor: pointer; transition: background .2s;
+  }
+  .update-item:last-child { border-right: none; }
+  .update-item:hover { background: #fdf5f4; }
+  .update-icon { font-size: 40px; margin-bottom: 16px; color: var(--red); }
+  .update-item h3 { font-size: 18px; font-weight: 800; margin-bottom: 12px; }
+  .update-item p { font-size: 14px; color: var(--text-light); line-height: 1.6; margin-bottom: 16px; }
+
+  /* ===== NETWORK ===== */
+  .network-section { padding: 70px 40px; background: white; }
+  .network-section h2 { text-align: center; font-size: 36px; font-weight: 800; font-family: 'Playfair Display', serif; margin-bottom: 40px; }
+  .network-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1200px; margin: 0 auto; }
+  .hospital-card {
+    border-radius: 16px; overflow: hidden;
+    box-shadow: 0 2px 16px rgba(0,0,0,.08); cursor: pointer;
+    transition: transform .25s;
+  }
+  .hospital-card:hover { transform: translateY(-4px); }
+  .hospital-img {
+    height: 220px; overflow: hidden;
+    background: linear-gradient(135deg, #c8d8e8, #8aa8c8);
+    display: flex; align-items: center; justify-content: center; font-size: 50px; opacity: .5;
+  }
+  .hospital-body { padding: 20px; }
+  .hospital-loc { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-light); margin-bottom: 8px; }
+  .hospital-body h3 { font-size: 18px; font-weight: 800; margin-bottom: 16px; }
+  .hospital-actions { display: flex; gap: 20px; }
+  .h-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: var(--text); cursor: pointer; }
+  .h-link .circle { width: 24px; height: 24px; background: var(--red); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 10px; }
+
+  /* ===== AWARDS ===== */
+  .awards-section { padding: 70px 40px; background: var(--bg-light); }
+  .awards-section h2 { text-align: center; font-size: 36px; font-weight: 800; font-family: 'Playfair Display', serif; margin-bottom: 40px; }
+  .awards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1000px; margin: 0 auto; }
+  .award-card {
+    background: white; border-radius: 16px; padding: 32px 24px; text-align: center;
+    box-shadow: 0 2px 16px rgba(0,0,0,.06); position: relative;
+  }
+  .award-year-tag { color: var(--red); font-size: 20px; font-weight: 800; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; gap: 12px; }
+  .award-year-tag::before, .award-year-tag::after { content: '—'; color: #ccc; }
+  .award-hospital { color: var(--red); font-size: 15px; font-weight: 700; margin-bottom: 10px; }
+  .award-desc { font-size: 16px; font-weight: 700; line-height: 1.4; margin-bottom: 8px; }
+  .award-source { font-size: 14px; color: var(--text-light); }
+  .laurel-left, .laurel-right { font-size: 32px; color: var(--red); }
+
+  /* ===== NEWS ===== */
+  .news-section { padding: 70px 40px; background: white; }
+  .news-section h2 { text-align: center; font-size: 36px; font-weight: 800; font-family: 'Playfair Display', serif; margin-bottom: 40px; }
+  .news-grid { display: grid; grid-template-columns: 480px 1fr 1fr; gap: 30px; max-width: 1300px; margin: 0 auto; }
+  .news-featured {
+    background: var(--bg-light); border-radius: 16px; overflow: hidden;
+    cursor: pointer; transition: transform .25s;
+  }
+  .news-featured:hover { transform: translateY(-3px); }
+  .news-feat-img {
+    height: 260px; background: linear-gradient(135deg, #d0d8e0, #a0b0c0);
+    display: flex; align-items: center; justify-content: center; font-size: 60px; opacity: .4;
+  }
+  .news-feat-body { padding: 24px; }
+  .news-date { font-size: 13px; color: var(--text-light); margin-bottom: 10px; }
+  .news-feat-body h3 { font-size: 20px; font-weight: 800; margin-bottom: 16px; line-height: 1.4; }
+  .read-post { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: var(--text); }
+  .read-post .circle { width: 24px; height: 24px; background: var(--red); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 10px; }
+  .news-col { display: flex; flex-direction: column; gap: 20px; }
+  .news-item {
+    display: flex; gap: 14px; cursor: pointer;
+    padding-bottom: 20px; border-bottom: 1px solid var(--border);
+  }
+  .news-item:last-child { border-bottom: none; }
+  .news-item-img {
+    width: 80px; height: 70px; border-radius: 8px; flex-shrink: 0;
+    background: linear-gradient(135deg, #d0d8e0, #a0b0c0);
+    display: flex; align-items: center; justify-content: center; font-size: 24px; opacity: .5;
+  }
+  .news-item-body h4 { font-size: 14px; font-weight: 700; margin-bottom: 6px; line-height: 1.4; }
+  .news-item-body .news-date { margin-bottom: 6px; }
+
+  /* ===== BLOGS ===== */
+  .blogs-section { padding: 70px 40px; background: var(--bg-light); }
+  .blogs-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; max-width: 1300px; margin-left: auto; margin-right: auto; }
+  .blogs-header h2 { font-size: 32px; font-weight: 800; font-family: 'Playfair Display', serif; }
+  .blogs-grid { display: grid; grid-template-columns: 1fr 1fr 480px; gap: 24px; max-width: 1300px; margin: 0 auto; }
+  .blog-card {
+    background: white; border-radius: 16px; overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,.07); cursor: pointer;
+    transition: transform .25s;
+  }
+  .blog-card:hover { transform: translateY(-3px); }
+  .blog-img {
+    height: 200px; position: relative; overflow: hidden;
+    background: linear-gradient(135deg, #d8e0e8, #b0c0d0);
+    display: flex; align-items: center; justify-content: center; font-size: 50px; opacity: .4;
+  }
+  .blog-tag {
+    position: absolute; bottom: 0; left: 0; right: 0; padding: 12px 16px;
+    background: linear-gradient(transparent, rgba(0,0,0,.7));
+    color: white; font-size: 13px; font-weight: 700;
+  }
+  .blog-body { padding: 20px; }
+  .blog-body h3 { font-size: 16px; font-weight: 700; margin-bottom: 10px; line-height: 1.4; }
+  .blog-body .blog-date { font-size: 12px; color: var(--text-light); margin-bottom: 14px; }
+  .blog-side { display: flex; flex-direction: column; gap: 16px; }
+  .blog-side-item { display: flex; gap: 14px; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,.06); cursor: pointer; }
+  .blog-side-img { width: 100px; height: 80px; flex-shrink: 0; background: linear-gradient(135deg, #d8e0e8, #b0c0d0); display: flex; align-items: center; justify-content: center; font-size: 30px; opacity: .4; }
+  .blog-side-body { padding: 12px; flex: 1; }
+  .blog-side-body h4 { font-size: 13px; font-weight: 700; line-height: 1.4; margin-bottom: 6px; }
+
+  /* ===== FOOTER ===== */
+  .footer { background: white; padding: 60px 40px 0; border-top: 3px solid var(--red); }
+  .footer-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 40px; max-width: 1400px; margin: 0 auto; }
+  .footer-col h4 { font-size: 15px; font-weight: 800; margin-bottom: 20px; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 10px; }
+  .footer-col ul li a { font-size: 13px; color: var(--text-light); transition: color .2s; }
+  .footer-col ul li a:hover { color: var(--red); }
+  .footer-app { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+  .app-btn {
+    display: flex; align-items: center; gap: 10px;
+    border: 1.5px solid var(--border); border-radius: 8px; padding: 10px 14px;
+    font-size: 13px; font-weight: 600; cursor: pointer; transition: border-color .2s;
+  }
+  .app-btn:hover { border-color: var(--red); }
+  .emergency-btn {
+    background: var(--red); color: white; border: none; border-radius: 8px;
+    padding: 14px 20px; font-size: 15px; font-weight: 800; cursor: pointer;
+    display: flex; align-items: center; gap: 10px; width: 100%;
+  }
+  .footer-bottom { max-width: 1400px; margin: 40px auto 0; padding: 20px 0; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+  .footer-social { display: flex; gap: 14px; }
+  .social-icon { width: 36px; height: 36px; border: 1.5px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; cursor: pointer; transition: all .2s; }
+  .social-icon:hover { background: var(--red); color: white; border-color: var(--red); }
+  .footer-copy { font-size: 12px; color: var(--text-light); }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { animation: fadeUp .6s ease forwards; }
+  
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 1100px) {
+    .hero-inner { grid-template-columns: 1fr 1fr; }
+    .hero-award { display: none; }
+    .specialities-grid { grid-template-columns: 1fr 1fr; }
+    .search-by { display: none; }
+  }
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .hero-inner { grid-template-columns: 1fr; text-align: center; }
+    .hero-doctor-img { display: none; }
+    .specialities-grid, .services-grid, .network-grid, .news-grid, .blogs-grid { grid-template-columns: 1fr; }
+    .stories-grid { grid-template-columns: 1fr 1fr; }
+    .beyond-section { grid-template-columns: 1fr; padding: 40px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .section, .section-bg { padding: 50px 20px; }
+  }
+  @media (max-width: 600px) {
+    .nav-top { padding: 12px 16px; }
+    .stories-grid { grid-template-columns: 1fr; }
+    .updates-grid, .awards-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .beyond-stats { flex-direction: column; gap: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+  <div class="nav-top">
+    <div class="logo">
+      <div class="logo-icon"><span class="logo-cross">✚</span></div>
+      <div class="logo-text">me<span>D</span>anta</div>
+    </div>
+    <div class="nav-links">
+      <a>Locations <span class="arrow">▼</span></a>
+      <a>Speciality <span class="arrow">▼</span></a>
+      <a>Health Library <span class="arrow">▼</span></a>
+      <a>Services <span class="arrow">▼</span></a>
+      <a>International Patients <span class="arrow">▼</span></a>
+      <a>Careers</a>
+      <a>Contact Us <span class="arrow">▼</span></a>
+    </div>
+    <div class="nav-right">
+      <button class="btn-callback">📞 Request Call Back</button>
+      <button class="lang-btn">En ▼</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-doctor-img">
+      <div class="doctor-silhouette">👨‍⚕️</div>
+    </div>
+    <div class="hero-content fade-up">
+      <div class="search-bar">
+        <input type="text" placeholder="Search for Doctors and Specialities">
+        <button class="search-btn">🔍</button>
+      </div>
+      <div class="quote-block">
+        <div class="quote-icon">"</div>
+        <p>Medanta's patient-first approach allows teams of super specialist doctors to collaborate seamlessly and arrive at the best possible treatment, customised for each patient in line with our guiding philosophy <strong>'Har Ek Jaan Anmol'</strong>, meaning <strong>'Every Life is Invaluable'</strong>.</p>
+        <div class="quote-author">Dr. Naresh Trehan</div>
+        <div class="quote-title">Chairman and Managing Director</div>
+      </div>
+    </div>
+    <div class="hero-award">
+      <div class="stars">★ ★ ★ ★ ★</div>
+      <div class="award-title">WORLD'S<br>BEST<br>HOSPITALS</div>
+      <div class="award-year">2026</div>
+      <div class="award-by">Newsweek</div>
+      <div class="award-sub">POWERED BY statista</div>
+      <div class="award-name">MEDANTA<br>THE MEDICITY</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== QUICK ACTIONS ===== -->
+<div class="quick-actions">
+  <div class="quick-actions-inner">
+    <div class="qa-item">
+      <span class="qa-icon">📅</span>
+      <span class="qa-label">Book<br>Appointment</span>
+    </div>
+    <div class="qa-item">
+      <span class="qa-icon">👨‍⚕️</span>
+      <span class="qa-label">Second Opinion</span>
+    </div>
+    <div class="qa-item">
+      <span class="qa-icon">❤️</span>
+      <span class="qa-label">Get Health Checkup</span>
+    </div>
+    <div class="qa-item">
+      <span class="qa-icon">💊</span>
+      <span class="qa-label">Book A Virtual Consultation</span>
+    </div>
+    <div class="qa-item">
+      <span class="qa-icon">🏠</span>
+      <span class="qa-label">Homecare</span>
+    </div>
+    <div class="qa-item">
+      <span class="qa-icon">🧪</span>
+      <span class="qa-label">Book a Test</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SPECIALITIES ===== -->
+<div style="background: white;">
+<div class="section" style="max-width: 1400px; margin: 0 auto; padding: 70px 40px;">
+  <div class="specialities-grid">
+    <div class="spec-left">
+      <div style="color: var(--red); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;">Specialities</div>
+      <h2>An Ecosystem for Clinical Excellence</h2>
+    </div>
+    <div>
+      <ul class="spec-list">
+        <li><span><span class="spec-icon">❤️</span> Cardiac Care</span> <span class="spec-arrow">›</span></li>
+        <li><span><span class="spec-icon">⚛️</span> Cancer Care</span> <span class="spec-arrow">›</span></li>
+        <li><span><span class="spec-icon">🧠</span> Neurosciences</span> <span class="spec-arrow">›</span></li>
+        <li><span><span class="spec-icon">🫁</span> Gastrosciences</span> <span class="spec-arrow">›</span></li>
+        <li><span><span class="spec-icon">🦴</span> Orthopaedics</span> <span class="spec-arrow">›</span></li>
+        <li><span><span class="spec-icon">🫀</span> Renal Care</span> <span class="spec-arrow">›</span></li>
+      </ul>
+      <div class="spec-view">
+        <span class="view-all">View All Specialities <span class="circle">›</span></span>
+      </div>
+    </div>
+    <div class="search-by">
+      <h3>Search By</h3>
+      <div class="search-tabs">
+        <button class="tab-btn active">Ailments</button>
+        <button class="tab-btn">Treatments</button>
+        <button class="tab-btn">Technologies</button>
+      </div>
+      <div class="alpha-grid">
+        <button class="alpha-btn">A</button><button class="alpha-btn">B</button>
+        <button class="alpha-btn">C</button><button class="alpha-btn">D</button>
+        <button class="alpha-btn">E</button><button class="alpha-btn">F</button>
+        <button class="alpha-btn">G</button><button class="alpha-btn">H</button>
+        <button class="alpha-btn">I</button><button class="alpha-btn">J</button>
+        <button class="alpha-btn">K</button><button class="alpha-btn">L</button>
+        <button class="alpha-btn">M</button><button class="alpha-btn">N</button>
+        <button class="alpha-btn">O</button><button class="alpha-btn">P</button>
+        <button class="alpha-btn">Q</button><button class="alpha-btn">R</button>
+        <button class="alpha-btn">S</button><button class="alpha-btn">T</button>
+        <button class="alpha-btn">U</button><button class="alpha-btn">V</button>
+        <button class="alpha-btn">W</button><button class="alpha-btn">X</button>
+        <button class="alpha-btn">Y</button><button class="alpha-btn">Z</button>
+      </div>
+      <div class="search-view" style="margin-top:20px;">
+        <span class="view-all">View All Ailments <span class="circle">›</span></span>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===== DOCTORS ===== -->
+<div class="doctors-section">
+  <h2 style="font-size:36px; font-weight:800; font-family:'Playfair Display',serif; margin-bottom:16px;">Doctors, Pioneers, Life Savers</h2>
+  <p>Our superspecialist doctors provide the highest quality of care through a team-based, doctor-led model. Trained at some of the world's most renowned institutions, our highly experienced doctors are distinguished experts in their respective specialities. Our doctors work full-time and exclusively across Medanta hospitals.</p>
+  <div class="doctor-filters">
+    <select class="filter-select active">
+      <option>Gurugram</option>
+      <option>Lucknow</option>
+      <option>Patna</option>
+      <option>Ranchi</option>
+    </select>
+    <select class="filter-select">
+      <option>All Specialities</option>
+      <option>Cardiac Care</option>
+      <option>Cancer Care</option>
+      <option>Neurosciences</option>
+    </select>
+    <button class="filter-go">Go</button>
+  </div>
+  <div class="doctors-photo">👨‍⚕️👩‍⚕️👨‍⚕️👩‍⚕️👨‍⚕️</div>
+</div>
+
+<!-- ===== MODEL OF CARE ===== -->
+<div class="model-section">
+  <h2>Medanta Model of Care</h2>
+  <div class="model-diagram">
+    <div class="model-item top">
+      <h3>Exceptional<br>clinical talent</h3>
+      <div class="know-more">Know More <span class="km-circle">›</span></div>
+    </div>
+    <div class="model-item left">
+      <h3>Trust-based<br>compassionate care</h3>
+      <div class="know-more" style="justify-content:flex-end;">Know More <span class="km-circle">›</span></div>
+    </div>
+    <div class="model-center">
+      <div class="model-center-inner">🏥</div>
+    </div>
+    <div class="model-item right">
+      <h3>World-class<br>infrastructure</h3>
+      <div class="know-more">Know More <span class="km-circle">›</span></div>
+    </div>
+    <div class="model-item bl">
+      <h3>Caring systems<br>and processes</h3>
+      <div class="know-more" style="justify-content:flex-end;">Know More <span class="km-circle">›</span></div>
+    </div>
+    <div class="model-item br">
+      <h3>Latest high-end<br>technology</h3>
+      <div class="know-more">Know More <span class="km-circle">›</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SERVICES ===== -->
+<div class="services-section">
+  <h2>Services</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-card-img">👩‍⚕️</div>
+      <div class="service-card-body">
+        <h3>Second Opinion</h3>
+        <p>Confirm diagnosis and take informed decision about your treatment plan with some of India's top experts</p>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span class="know-more-link">Know More <span style="width:22px;height:22px;background:var(--red);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:white;font-size:10px;margin-left:6px;">›</span></span>
+          <span style="font-size:40px;opacity:.15;">👨‍⚕️</span>
+        </div>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-card-body" style="padding:30px;">
+        <h3>Buy Medicine</h3>
+        <p>Recover without worrying about going out to buy reliable medication; get them delivered to your doorstep</p>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span class="know-more-link">Know More <span style="width:22px;height:22px;background:var(--red);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:white;font-size:10px;margin-left:6px;">›</span></span>
+          <span style="font-size:40px;opacity:.15;">💊</span>
+        </div>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-card-img">👨‍⚕️</div>
+      <div class="service-card-body">
+        <h3>Health Check</h3>
+        <p>Take charge of your well-being with a health experience customised for you</p>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span class="know-more-link">Know More <span style="width:22px;height:22px;background:var(--red);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:white;font-size:10px;margin-left:6px;">›</span></span>
+          <span style="font-size:40px;opacity:.15;">🩺</span>
+        </div>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-card-body" style="padding:30px;">
+        <h3>Labs and Diagnostics</h3>
+        <p>Medanta Labs aims to take the benefit of its superior technology, infrastructure and expertise to all</p>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span class="know-more-link">Know More <span style="width:22px;height:22px;background:var(--red);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:white;font-size:10px;margin-left:6px;">›</span></span>
+          <span style="font-size:40px;opacity:.15;">🔬</span>
+        </div>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-card-img">🏠</div>
+      <div class="service-card-body">
+        <h3>Homecare</h3>
+        <p>Bringing world-class healthcare right to your doorstep with personalised care plans</p>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span class="know-more-link">Know More <span style="width:22px;height:22px;background:var(--red);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:white;font-size:10px;margin-left:6px;">›</span></span>
+          <span style="font-size:40px;opacity:.15;">🏠</span>
+        </div>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-card-body" style="padding:30px;">
+        <h3>Virtual Consultation</h3>
+        <p>Consult with Medanta's top specialists from the comfort of your home via video call</p>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span class="know-more-link">Know More <span style="width:22px;height:22px;background:var(--red);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:white;font-size:10px;margin-left:6px;">›</span></span>
+          <span style="font-size:40px;opacity:.15;">💻</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PATIENT STORIES ===== -->
+<div class="stories-section">
+  <h2>Patient Stories</h2>
+  <div class="stories-grid">
+    <div class="story-card tall">
+      <div class="story-inner">
+        <div class="story-placeholder">👤</div>
+        <div class="play-btn">▶</div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:14px;background:linear-gradient(transparent,rgba(0,0,0,.75));color:white;">
+          <h4 style="font-size:13px;font-weight:700;">Mauritian Patient Treated For Esophageal Cancer</h4>
+          <p style="font-size:11px;opacity:.8;">Mr Fazl Hosany</p>
+        </div>
+      </div>
+    </div>
+    <div class="story-card-col">
+      <div class="story-card short">
+        <div class="story-inner">
+          <div class="story-placeholder" style="background:linear-gradient(135deg,#a8c8a8,#789878);">👶</div>
+          <div class="play-btn">▶</div>
+          <div style="position:absolute;bottom:0;left:0;right:0;padding:14px;background:linear-gradient(transparent,rgba(0,0,0,.75));color:white;">
+            <h4 style="font-size:13px;font-weight:700;">Liver Failure</h4>
+            <p style="font-size:11px;opacity:.8;">Baby Bhavika</p>
+          </div>
+        </div>
+      </div>
+      <div class="story-card short">
+        <div class="story-inner">
+          <div class="story-placeholder" style="background:linear-gradient(135deg,#c8a8a8,#a88888);">👩</div>
+          <div class="play-btn">▶</div>
+          <div style="position:absolute;bottom:0;left:0;right:0;padding:14px;background:linear-gradient(transparent,rgba(0,0,0,.75));color:white;">
+            <h4 style="font-size:13px;font-weight:700;">Jaw Cancer</h4>
+            <p style="font-size:11px;opacity:.8;">Dr. Abhilasha Agarwal</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="story-card wide">
+      <div class="story-inner">
+        <div class="story-placeholder" style="background:linear-gradient(135deg,#c8a8c8,#a888a8);height:100%;">👩‍🦱</div>
+        <div class="play-btn">▶</div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:14px;background:linear-gradient(transparent,rgba(0,0,0,.75));color:white;">
+          <h4 style="font-size:15px;font-weight:700;">Pre-term Babies</h4>
+          <p style="font-size:12px;opacity:.8;">Ms Sakshi</p>
+        </div>
+      </div>
+    </div>
+    <div class="story-card-col">
+      <div class="story-card short">
+        <div class="story-inner">
+          <div class="story-placeholder" style="background:linear-gradient(135deg,#c8c8a8,#a8a878);">👴</div>
+          <div class="play-btn">▶</div>
+          <div style="position:absolute;bottom:0;left:0;right:0;padding:14px;background:linear-gradient(transparent,rgba(0,0,0,.75));color:white;">
+            <h4 style="font-size:13px;font-weight:700;">Neurosurgical Treatment</h4>
+            <p style="font-size:11px;opacity:.8;">Mr. Devender Jeet Singh</p>
+          </div>
+        </div>
+      </div>
+      <div class="story-card short">
+        <div class="story-inner">
+          <div class="story-placeholder" style="background:linear-gradient(135deg,#a8b8c8,#8898a8);">👨</div>
+          <div class="play-btn">▶</div>
+          <div style="position:absolute;bottom:0;left:0;right:0;padding:14px;background:linear-gradient(transparent,rgba(0,0,0,.75));color:white;">
+            <h4 style="font-size:13px;font-weight:700;">Bone Marrow Transplant</h4>
+            <p style="font-size:11px;opacity:.8;">Patient Father Mr Haider</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="story-card tall">
+      <div class="story-inner">
+        <div class="story-placeholder" style="background:linear-gradient(135deg,#b8c8d8,#98a8c8);">👩‍🦱</div>
+        <div class="play-btn">▶</div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:14px;background:linear-gradient(transparent,rgba(0,0,0,.75));color:white;">
+          <h4 style="font-size:13px;font-weight:700;">Mother Saves Daughter By Donating A Kidney</h4>
+          <p style="font-size:11px;opacity:.8;">Ms Paluk Sunger</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="stories-view">
+    <span class="view-all" style="margin-top:30px;display:inline-flex;">View All Patients Stories <span class="circle" style="margin-left:10px;">›</span></span>
+  </div>
+</div>
+
+<!-- ===== BEYOND BOUNDARIES ===== -->
+<div class="beyond-section">
+  <div class="beyond-left">
+    <span>Beyond Boundaries</span>
+    <h2>Fostering Health With Cutting-Edge Medical Services Across 130+ Countries</h2>
+    <div class="beyond-actions">
+      <div class="btn-know">Know More <span class="circle">›</span></div>
+    </div>
+    <button class="btn-enquire" style="margin-top:20px;">Enquire Now</button>
+  </div>
+  <div>
+    <div style="background:rgba(255,255,255,.15);border-radius:16px;height:280px;display:flex;align-items:center;justify-content:center;font-size:80px;margin-bottom:30px;">🌍</div>
+    <div class="beyond-stats">
+      <div class="stat-item">
+        <div class="stat-num">20000+</div>
+        <div class="stat-label">Average International Patients Per Year</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">130+</div>
+        <div class="stat-label">Countries</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">06+</div>
+        <div class="stat-label">Hospitals in India</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== UPDATES ===== -->
+<div class="updates-section">
+  <div style="max-width:1200px;margin:0 auto;">
+    <h2>Updates</h2>
+    <div class="updates-grid">
+      <div class="update-item">
+        <div class="update-icon">📱</div>
+        <h3>New Clinic Launched</h3>
+        <p>60-minute sample collection, medicine delivery, doctor consult now at DLF Cyber Park, Gurugram</p>
+        <span class="view-all">Know More <span class="circle">›</span></span>
+      </div>
+      <div class="update-item">
+        <div class="update-icon">🧓</div>
+        <h3>Elder Care Program</h3>
+        <p>Medanta's Elder Care Programme gives your loved ones an empowering plan for their golden years.</p>
+        <span class="view-all">Know More <span class="circle">›</span></span>
+      </div>
+      <div class="update-item">
+        <div class="update-icon">🏥</div>
+        <h3>e-ICU</h3>
+        <p>Bringing expert intervention to critically unwell patients even in the remotest parts of India</p>
+        <span class="view-all">Know More <span class="circle">›</span></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MEDANTA NETWORK ===== -->
+<div class="network-section">
+  <h2>Medanta Network</h2>
+  <div class="network-grid">
+    <div class="hospital-card">
+      <div class="hospital-img">🏢</div>
+      <div class="hospital-body">
+        <div class="hospital-loc">📍 Gurugram</div>
+        <h3>Medanta - The Medicity, Gurugram</h3>
+        <div class="hospital-actions">
+          <span class="h-link">Know More <span class="circle">›</span></span>
+          <span class="h-link">360 Degree View <span class="circle">›</span></span>
+        </div>
+      </div>
+    </div>
+    <div class="hospital-card">
+      <div class="hospital-img">🏨</div>
+      <div class="hospital-body">
+        <div class="hospital-loc">📍 Lucknow</div>
+        <h3>Medanta Super Speciality Hospital, Lucknow</h3>
+        <div class="hospital-actions">
+          <span class="h-link">Know More <span class="circle">›</span></span>
+          <span class="h-link">360 Degree View <span class="circle">›</span></span>
+        </div>
+      </div>
+    </div>
+    <div class="hospital-card">
+      <div class="hospital-img">🏛️</div>
+      <div class="hospital-body">
+        <div class="hospital-loc">📍 Patna</div>
+        <h3>Jay Prabha Medanta Super Specialty Hospital, Patna</h3>
+        <div class="hospital-actions">
+          <span class="h-link">Know More <span class="circle">›</span></span>
+          <span class="h-link">360 Degree View <span class="circle">›</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== AWARDS ===== -->
+<div class="awards-section">
+  <h2>Awards & Recognitions</h2>
+  <div class="awards-grid">
+    <div class="award-card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+        <span style="font-size:28px;color:var(--red);">🏆</span>
+        <span style="font-size:28px;color:var(--red);">🏆</span>
+      </div>
+      <div class="award-year-tag">2026</div>
+      <div class="award-hospital">Medanta Gurugram</div>
+      <div class="award-desc">#1 Hospital in India Among the World's Best Hospitals<br>7 Years in a Row</div>
+      <div class="award-source">- Newsweek</div>
+    </div>
+    <div class="award-card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+        <span style="font-size:28px;color:var(--red);">🏆</span>
+        <span style="font-size:28px;color:var(--red);">🏆</span>
+      </div>
+      <div class="award-year-tag">2025</div>
+      <div class="award-hospital">Medanta Gurugram</div>
+      <div class="award-desc">Best Healthcare Brands of 2025</div>
+      <div class="award-source">- The Economic Times</div>
+    </div>
+    <div class="award-card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+        <span style="font-size:28px;color:var(--red);">🏆</span>
+        <span style="font-size:28px;color:var(--red);">🏆</span>
+      </div>
+      <div class="award-year-tag">2025</div>
+      <div class="award-hospital">Medanta Gurugram</div>
+      <div class="award-desc">Best Private Hospital in India for 6 Years in a Row</div>
+      <div class="award-source">- Newsweek</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== NEWS & EVENTS ===== -->
+<div class="news-section">
+  <h2>News &amp; Events</h2>
+  <div class="news-grid">
+    <div class="news-featured">
+      <div class="news-feat-img">📰</div>
+      <div class="news-feat-body">
+        <div class="news-date">Apr 04, 2026</div>
+        <h3>Medanta's Brain Pacemaker Surgery Restores Hope, Offers Second Chance at Life to J&K Patients</h3>
+        <span class="read-post">Read Post <span class="circle">›</span></span>
+      </div>
+    </div>
+    <div class="news-col">
+      <div class="news-item">
+        <div class="news-item-img">📋</div>
+        <div class="news-item-body">
+          <div class="news-date">Mar 07, 2026</div>
+          <h4>Medanta Drives Jabalpur Outreach to Improve Thalassemia and Aplastic Anemia Care</h4>
+          <span class="read-post" style="font-size:12px;">Read Post <span class="circle" style="width:20px;height:20px;font-size:9px;">›</span></span>
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="news-item-img">🏆</div>
+        <div class="news-item-body">
+          <div class="news-date">Feb 26, 2026</div>
+          <h4>Medanta ranked India's best hospital by Newsweek</h4>
+          <span class="read-post" style="font-size:12px;">Read Post <span class="circle" style="width:20px;height:20px;font-size:9px;">›</span></span>
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="news-item-img">🧠</div>
+        <div class="news-item-body">
+          <div class="news-date">Feb 20, 2026</div>
+          <h4>Medanta Enhances India's Neurological Care Landscape with Advanced 'Brain Pacemaker' Surgery</h4>
+          <span class="read-post" style="font-size:12px;">Read Post <span class="circle" style="width:20px;height:20px;font-size:9px;">›</span></span>
+        </div>
+      </div>
+    </div>
+    <div class="news-col">
+      <div class="news-item">
+        <div class="news-item-img">☢️</div>
+        <div class="news-item-body">
+          <div class="news-date">Feb 07, 2026</div>
+          <h4>Advanced Radiation Therapy at Medanta to Give New Hope to Cancer Patients in Haryana</h4>
+          <span class="read-post" style="font-size:12px;">Read Post <span class="circle" style="width:20px;height:20px;font-size:9px;">›</span></span>
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="news-item-img">🚑</div>
+        <div class="news-item-body">
+          <div class="news-date">Feb 06, 2026</div>
+          <h4>Medanta Launches Dedicated 24x7 Chest Trauma Support Service to Strengthen Emergency Care in North India</h4>
+          <span class="read-post" style="font-size:12px;">Read Post <span class="circle" style="width:20px;height:20px;font-size:9px;">›</span></span>
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="news-item-img">🌟</div>
+        <div class="news-item-body">
+          <div class="news-date">Feb 04, 2026</div>
+          <h4>Medanta Mediclinic Defence Colony Marks World Cancer Day with Purple Illumination and Awareness Activities</h4>
+          <span class="read-post" style="font-size:12px;">Read Post <span class="circle" style="width:20px;height:20px;font-size:9px;">›</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== LATEST BLOGS ===== -->
+<div class="blogs-section">
+  <div class="blogs-header">
+    <h2>Latest Blogs</h2>
+    <span class="view-all">View All Blogs <span class="circle">›</span></span>
+  </div>
+  <div class="blogs-grid">
+    <div class="blog-card">
+      <div class="blog-img">
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg,#e0d8d0,#c0b0a0);display:flex;align-items:center;justify-content:center;font-size:60px;opacity:.4;">🏥</div>
+        <div class="blog-tag" style="position:absolute;bottom:0;left:0;right:0;padding:12px 16px;background:linear-gradient(transparent,rgba(0,0,0,.7));color:white;font-size:13px;font-weight:700;">Tummy Tuck vs Liposuction: Recovery Time, Results, and Suitability</div>
+      </div>
+      <div class="blog-body">
+        <div class="blog-date">Mar 17, 2026</div>
+        <h3>Tummy Tuck vs Liposuction: Recovery Time, Results, and Suita...</h3>
+        <span class="view-all" style="font-size:13px;">Read More <span class="circle">›</span></span>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-img">
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg,#d0e0d0,#a0c0a0);display:flex;align-items:center;justify-content:center;font-size:60px;opacity:.4;">🔬</div>
+        <div class="blog-tag" style="position:absolute;bottom:0;left:0;right:0;padding:12px 16px;background:linear-gradient(transparent,rgba(0,0,0,.7));color:white;font-size:13px;font-weight:700;">Before Your Child Has a Bone Marrow Transplant: What Parents Need to Know</div>
+      </div>
+      <div class="blog-body">
+        <div class="blog-date">Feb 18, 2026</div>
+        <h3>Before Your Child Has a Bone Marrow Transplant: What Parents...</h3>
+        <span class="view-all" style="font-size:13px;">Read More <span class="circle">›</span></span>
+      </div>
+    </div>
+    <div class="blog-side">
+      <div class="blog-side-item">
+        <div class="blog-side-img">👁️</div>
+        <div class="blog-side-body">
+          <div style="font-size:11px;color:var(--text-light);margin-bottom:4px;">Feb 03, 2026</div>
+          <h4>4D-Phaco Cataract Surgery in India: Technology, Results and...</h4>
+          <span class="view-all" style="font-size:12px;">Read More <span class="circle" style="width:20px;height:20px;font-size:9px;">›</span></span>
+        </div>
+      </div>
+      <div class="blog-side-item">
+        <div class="blog-side-img">🫀</div>
+        <div class="blog-side-body">
+          <div style="font-size:11px;color:var(--text-light);margin-bottom:4px;">Jan 27, 2026</div>
+          <h4>Liver Detox: Best Foods and Fruits for Natural Liver Cleansi...</h4>
+          <span class="view-all" style="font-size:12px;">Read More <span class="circle" style="width:20px;height:20px;font-size:9px;">›</span></span>
+        </div>
+      </div>
+      <div class="blog-side-item">
+        <div class="blog-side-img">🤲</div>
+        <div class="blog-side-body">
+          <div style="font-size:11px;color:var(--text-light);margin-bottom:4px;">Jan 22, 2026</div>
+          <h4>White Spots on Skin: Causes, Symptoms, and Treatments</h4>
+          <span class="view-all" style="font-size:12px;">Read More <span class="circle" style="width:20px;height:20px;font-size:9px;">›</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>For Patients</h4>
+      <ul>
+        <li><a href="#">Find a Doctor</a></li>
+        <li><a href="#">Book Appointment</a></li>
+        <li><a href="#">Treatments</a></li>
+        <li><a href="#">Emergency 24x7</a></li>
+        <li><a href="#">Technology</a></li>
+        <li><a href="#">Patient Testimonials</a></li>
+        <li><a href="#">CPR</a></li>
+        <li><a href="#">Disclaimer</a></li>
+        <li><a href="#">Terms &amp; Conditions</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Refund &amp; Cancellations</a></li>
+        <li><a href="#">Medicine Information</a></li>
+        <li><a href="#">Jaanta Hai Medanta</a></li>
+        <li><a href="#">Ambulance Services</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Specialities</h4>
+      <ul>
+        <li><a href="#">Cardiac Care</a></li>
+        <li><a href="#">Cancer Care</a></li>
+        <li><a href="#">Neurosciences</a></li>
+        <li><a href="#">Gastrosciences</a></li>
+        <li><a href="#">Orthopaedics</a></li>
+        <li><a href="#">Renal Care</a></li>
+        <li><a href="#">Liver Transplant</a></li>
+        <li><a href="#">Bone Marrow Transplant</a></li>
+        <li><a href="#">Lung Transplant</a></li>
+        <li><a href="#">Chest Surgery</a></li>
+        <li><a href="#"><strong>More +</strong></a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Our Hospitals</h4>
+      <ul>
+        <li><a href="#">Medanta Hospital, Ranchi</a></li>
+        <li><a href="#">Medanta Gurugram</a></li>
+        <li><a href="#">Medanta Patna</a></li>
+        <li><a href="#">Medanta Lucknow</a></li>
+        <li><a href="#"><strong>Medanta Ranchi</strong></a></li>
+        <li><a href="#">Medanta Indore</a></li>
+        <li><a href="#">Medanta Noida</a></li>
+        <li><a href="#">Medanta Mediclinic, Ranchi</a></li>
+        <li><a href="#">Medanta Mediclinic Subhash Chowk</a></li>
+        <li><a href="#">Medanta Mediclinic Cybercity</a></li>
+        <li><a href="#">Medanta Mediclinic Defence Colony</a></li>
+        <li><a href="#">Medanta Mediclinic Golf course</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Corporate</h4>
+      <ul>
+        <li><a href="#">Help Desk</a></li>
+        <li><a href="#">About us</a></li>
+        <li><a href="#">Blogs</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">AHA Courses</a></li>
+        <li><a href="#">Feedback</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">News &amp; Events</a></li>
+        <li><a href="#">Investor Relations</a></li>
+        <li><a href="#">Policies &amp; Forms</a></li>
+        <li><a href="#">Coronary Stent Prices</a></li>
+        <li><a href="#">Orthopaedic Knee Implant Prices</a></li>
+        <li><a href="#">Biomedical Waste Report</a></li>
+        <li><a href="#">Sitemap</a></li>
+        <li><a href="#">Web Stories</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Download Our App</h4>
+      <p style="font-size:13px;color:var(--text-light);margin-bottom:16px;">Download our all new Medanta App to book your appointments at your fingertips</p>
+      <div class="footer-app">
+        <div class="app-btn">▶ Get it on Google Play</div>
+        <div class="app-btn">🍎 Get it on the App Store</div>
+      </div>
+      <button class="emergency-btn">🔔 Emergency 1068</button>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-social">
+      <div class="social-icon">f</div>
+      <div class="social-icon">𝕏</div>
+      <div class="social-icon">📷</div>
+      <div class="social-icon">▶</div>
+    </div>
+    <div class="footer-copy">© 2026 Medanta. All Rights Reserved.</div>
+  </div>
+  <div style="height:20px;"></div>
+</footer>
+
+<script>
+  // Tab switching
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      this.closest('.search-tabs').querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
+  // Alpha button hover
+  document.querySelectorAll('.alpha-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      this.style.background = 'var(--red)';
+      this.style.color = 'white';
+      setTimeout(() => {
+        this.style.background = '';
+        this.style.color = '';
+      }, 300);
+    });
+  });
+
+  // Smooth scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.service-card, .hospital-card, .award-card, .update-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity .5s ease, transform .5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
